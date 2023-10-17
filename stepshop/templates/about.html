@@ -1,43 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout/base.html' %}
 
-  <head>
+{%load static%}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+{%block title%} {{title|capfirst}}{%endblock%}
 
-    <title>Pixie Template - About Page</title>
+{% block content%}
 
-    <!-- Bootstrap core CSS -->
-    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/static/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="/static/assets/css/tooplate-main.css">
-    <link rel="stylesheet" href="/static/assets/css/owl.css">
-    <link rel="stylesheet" href="/static/assets/css/flex-slider.css">
-<!--
-Tooplate 2114 Pixie
-https://www.tooplate.com/view/2114-pixie
--->
-  </head>
-
-  <body>
-    
-    <!-- Pre Header -->
-    <div id="pre-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <span>Suspendisse laoreet magna vel diam lobortis imperdiet</span>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -87,7 +55,7 @@ https://www.tooplate.com/view/2114-pixie
           <div class="col-md-6">
             <div class="right-content">
               <h4>Phasellus vel interdum elit</h4>
-              <p><a href="https://www.pexels.com/photo/group-of-people-raising-right-hand-1059120/">Photo Credit</a> goes to Pexels website. Aliquam erat volutpat. Pellentesque fringilla, ligula consectetur cursus scelerisque, leo elit pellentesque sapien, et pharetra arcu elit vitae sem. Suspendisse erat dui, condimentum in mi ac, varius tempor sapien. Donec in justo sit amet ex aliquet maximus ac quis erat.</p> 
+              <p><a href="https://www.pexels.com/photo/group-of-people-raising-right-hand-1059120/">Photo Credit</a> goes to Pexels website. Aliquam erat volutpat. Pellentesque fringilla, ligula consectetur cursus scelerisque, leo elit pellentesque sapien, et pharetra arcu elit vitae sem. Suspendisse erat dui, condimentum in mi ac, varius tempor sapien. Donec in justo sit amet ex aliquet maximus ac quis erat.</p>
               <br>
               <p>Donec fermentum tincidunt tellus quis fermentum. Proin eget imperdiet purus. Nulla facilisi. Aliquam tincidunt porttitor dui sed euismod. Duis est libero, rhoncus fermentum turpis id, tempus fringilla ipsum. Nullam venenatis tincidunt neque vel hendrerit. Suspendisse porta pretium porttitor.</p>
               <br>
@@ -122,8 +90,8 @@ https://www.tooplate.com/view/2114-pixie
                   <div class="row">
                     <div class="col-md-7">
                       <fieldset>
-                        <input name="email" type="text" class="form-control" id="email" 
-                        onfocus="if(this.value == 'Your Email...') { this.value = ''; }" 
+                        <input name="email" type="text" class="form-control" id="email"
+                        onfocus="if(this.value == 'Your Email...') { this.value = ''; }"
                     	onBlur="if(this.value == '') { this.value = 'Your Email...';}"
                     	value="Your Email..." required="">
                       </fieldset>
@@ -144,7 +112,7 @@ https://www.tooplate.com/view/2114-pixie
     <!-- Subscribe Form Ends Here -->
 
 
-    
+
     <!-- Footer Starts Here -->
     <div class="footer">
       <div class="container">
@@ -180,48 +148,4 @@ https://www.tooplate.com/view/2114-pixie
     </div>
     <!-- Footer Ends Here -->
 
-
-    <!-- Sub Footer Starts Here -->
-    <div class="sub-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="copyright-text">
-              <p>Copyright &copy; 2019 Company Name 
-                
-                - Design: <a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Sub Footer Ends Here -->
-
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="/static/vendor/jquery/jquery.min.js"></script>
-    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-    <!-- Additional Scripts -->
-    <script src="/static/assets/js/custom.js"></script>
-    <script src="/static/assets/js/owl.js"></script>
-    <script src="/static/assets/js/isotope.js"></script>
-    <script src="/static/assets/js/flex-slider.js"></script>
-
-
-    <script language = "text/Javascript"> 
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
-    </script>
-
-
-  </body>
-
-</html>
+{% endblock %}

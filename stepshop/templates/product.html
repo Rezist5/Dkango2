@@ -4,7 +4,11 @@
 
 {%block title%} {{title|capfirst}} {%endblock%}
 
+
 {% block content%}
+{%block css%}
+  <link rel="stylesheet" href="{% static 'assets/css/flex-slider.css'">
+{%endblock%}
 
     <!-- Page Content -->
     <!-- Single Starts Here -->
@@ -244,4 +248,8 @@
     </div>
     <!-- Footer Ends Here -->
 
+{% endblock %}
+{%block js%}
+    <script src = "{%static 'assets/js/isotope.js'%}"></script>
+    <script src = "{%static 'assets/js/flex-slider.js'%}"></script>
 {% endblock %}

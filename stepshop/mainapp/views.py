@@ -18,4 +18,4 @@ def contact(request):
 
 
 def product(request):
-    return render(request, 'single-product.html')
+    return render(request, 'product.html')

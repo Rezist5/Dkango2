@@ -1,7 +1,9 @@
 from django.shortcuts import render
 
+from mainapp.models import Product
 
-def links_m(title):
+
+def links_m(**kwargs):
     links_menu = [
         {'link': 'index', 'name': "Главная"},
         {'link': 'products:index', 'name': "Продукты"},
@@ -9,32 +11,40 @@ def links_m(title):
         {'link': 'contact', 'name': "Контакты"},
     ]
     context = {
-        'title': title,
         'links_menu': links_menu,
     }
+    context.update(**kwargs)
     return context
 
 
 def index(request):
     title = "Main"
-    return render(request, 'index.html', links_m(title))
+    prods = Product.objects.all()
+    context = links_m(title=title, prods=prods)
+    return render(request, 'index.html', context)
 
 
 def about(request):
     title = "About"
-    return render(request, 'about.html', links_m(title))
+    context = links_m(title=title)
+    return render(request, 'about.html', context)
 
 
 def products(request):
     title = "Catalog"
-    return render(request, 'products.html', links_m(title))
+    prods = Product.objects.all()
+    context = links_m(title=title, prods=prods)
+    return render(request, 'products.html', context)
 
 
 def contact(request):
     title = "Contacts"
-    return render(request, 'contact.html', links_m(title))
+    context = links_m(title=title)
+    return render(request, 'contact.html', context)
 
 
-def product(request):
+def product(request, pk):
     title = "Product page"
-    return render(request, 'product.html', links_m(title))
+    prod = Product.objects.get(pk=pk)
+    context = links_m(title=title, prod=prod)
+    return render(request, 'product.html', context)

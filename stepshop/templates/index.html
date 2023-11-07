@@ -1,4 +1,3 @@
-
 {% extends 'layout/base.html' %}
 
 {%load static%}
@@ -47,20 +46,20 @@
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme">
                     {% for prod in prods %}
-                        <a href="{% url 'products:product' prod.pk %}">
+                    <a href="{% url 'products:product' prod.pk %}">
                         <div class="featured-item">
-                              {% if prod.image %}
-                                 <div class="featured-item">
-                                    <img src="{{prod.image.url}}" alt="{{prod.name}}">
-                                    <h4>{{prod.name}}</h4>
-                                    <h6>{{prod.price}}</h6>
-                                 </div>
+                            {% if prod.image %}
+                            <div class="featured-item">
+                                <img src="{{prod.image.url}}" alt="{{prod.name}}">
+                                <h4>{{prod.name}}</h4>
+                                <h6>{{prod.price}}</h6>
+                            </div>
                             {% else %}
-                                <div class="featured-item">
-                                    <img src="{% static 'assets/images/default.png' %}" alt="{{prod.name}}">
-                                        <h4>{{prod.name}}</h4>
-                                        <h6>{{prod.price}}</h6>
-                                </div>
+                            <div class="featured-item">
+                                <img src="{% static 'assets/images/default.png' %}" alt="{{prod.name}}">
+                                <h4>{{prod.name}}</h4>
+                                <h6>{{prod.price}}</h6>
+                            </div>
                             {%endif%}
                         </div>
                     </a>

@@ -1,7 +1,7 @@
 {%load static%}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 
@@ -35,56 +35,56 @@
         <div class="row">
             <div class="col-md-12">
                 {% if user.is_authenticated %}
-
-                <span>{{user.username|title}}</span>
-                <span>{{user.first_name|title}} {{user.last_name|title}}</span>
-                {#<span>{{user.last_login|date:"d m Y"}}</span>#}
-
+                    <span><a href="{% url 'auth:edit' %}" class="text-light">
+                        {{user.username|title}}
+                        </a>
+                    </span> |
+                    <span><a href="{% url 'auth:logout' %}" class="text-light">Выйти</a></span>
                 {% else %}
-                <span>Гость</span>
+                    <span><a href="{% url 'auth:login' %}" class="text-light">Войти</a></span>
                 {% endif %}
-                {%for item in items %}
+                    {%for item in items %}
                 {{item}}
-                {% endfor %}
+                    {% endfor %}
             </div>
         </div>
     </div>
 </div>
 
-    {% include '../includes/inc_main_menu.html'%}
+{% include '../includes/inc_main_menu.html'%}
 
 {%block content%}
-    blockad
+blockad
 {% endblock %}
 
 <!-- Sub Footer Starts Here -->
 <div class="sub-footer">
-      <div class="container">
+    <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="copyright-text">
-              <p>Copyright &copy; 2023&ndash; {%now "Y" %} Bober Inc.
+            <div class="col-md-12">
+                <div class="copyright-text">
+                    <p>Copyright &copy; 2023&ndash; {%now "Y" %} Bober Inc.
 
-                - Design: <a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a></p>
+                    </p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!-- Sub Footer Ends Here -->
+</div>
+<!-- Sub Footer Ends Here -->
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 
-    <!-- Additional Scripts -->
-    <script src="{% static 'assets/js/custom.js' %}"></script>
-    <script src="{% static 'assets/js/owl.js' %}"></script>
+<!-- Additional Scripts -->
+<script src="{% static 'assets/js/custom.js' %}"></script>
+<script src="{% static 'assets/js/owl.js' %}"></script>
 
 
-    <script language = "text/Javascript">
+<script language="text/Javascript">
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
       if(! cleared[t.id]){                      // function makes it static and global
@@ -93,9 +93,10 @@
           t.style.color='#fff';
           }
       }
-    </script>
+
+</script>
 
 
-  </body>
+</body>
 
 </html>

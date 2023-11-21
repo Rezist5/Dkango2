@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from mainapp.models import Product
+from mainapp.models import Product, Category
 
 
 def links_m(**kwargs):
@@ -10,8 +10,11 @@ def links_m(**kwargs):
         {'link': 'about', 'name': "О нас"},
         {'link': 'contact', 'name': "Контакты"},
     ]
+    categories = Category.objects.all()
+
     context = {
         'links_menu': links_menu,
+        'categories': categories,
     }
     context.update(**kwargs)
     return context
@@ -30,10 +33,18 @@ def about(request):
     return render(request, 'about.html', context)
 
 
-def products(request):
+def products(request, pk=None):
     title = "Catalog"
-    prods = Product.objects.all()
-    context = links_m(title=title, prods=prods)
+    # prods = Product.objects.all()
+    prods = Product.objects.order_by('price')
+    context = {}
+
+    if pk is not None:
+        category = get_object_or_404(Category, pk=pk)
+        prods = Product.objects.filter(category__pk=pk).order_by('price')
+        context = links_m(category=category)
+
+    context = links_m(title=title, prods=prods, **context)
     return render(request, 'products.html', context)
 
 

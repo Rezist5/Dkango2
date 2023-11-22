@@ -38,7 +38,10 @@ def products(request, pk=None):
     # prods = Product.objects.all()
     prods = Product.objects.order_by('price')
     context = {}
-
+    if pk == 0:
+        prods = Product.objects.all()
+        context = links_m(title=title, prods=prods, **context)
+        return render(request, 'products.html', context)
     if pk is not None:
         category = get_object_or_404(Category, pk=pk)
         prods = Product.objects.filter(category__pk=pk).order_by('price')

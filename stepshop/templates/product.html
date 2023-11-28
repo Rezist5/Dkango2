@@ -46,6 +46,11 @@
               <h6>{{prod.price}}</h6>
               <p>{{prod.description}}</p>
               <span>7 штук</span>
+                <button class="btn btn-primary">
+                  <a href="{% url 'basket:add' prod.pk %}" class="text-light">
+                    Добавить
+                  </a>
+                </button>
 
               <div class="down-content">
                 <div class="categories">
@@ -120,8 +125,8 @@
                   <div class="row">
                     <div class="col-md-7">
                       <fieldset>
-                        <input name="email" type="text" class="form-control" id="email" 
-                        onfocus="if(this.value == 'Your Email...') { this.value = ''; }" 
+                        <input name="email" type="text" class="form-control" id="email"
+                        onfocus="if(this.value == 'Your Email...') { this.value = ''; }"
                     	onBlur="if(this.value == '') { this.value = 'Your Email...';}"
                     	value="Your Email..." required="">
                       </fieldset>
@@ -142,7 +147,7 @@
     <!-- Subscribe Form Ends Here -->
 
 
-    
+
     <!-- Footer Starts Here -->
     <div class="footer">
       <div class="container">

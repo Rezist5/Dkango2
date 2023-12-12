@@ -23,19 +23,21 @@ def links_m(**kwargs):
 
 def get_basket(user):
     if user.is_authenticated:
-        return  Basket.objects.filter(user=user)
+        return Basket.objects.filter(user=user)
     return []
 
 def index(request):
     title = "Main"
     prods = Product.objects.all()
-    context = links_m(title=title, prods=prods)
+    basket = get_basket(request.user)
+    context = links_m(title=title, prods=prods, basket=basket)
     return render(request, 'index.html', context)
 
 
 def about(request):
     title = "About"
-    context = links_m(title=title)
+    basket = get_basket(request.user)
+    context = links_m(title=title , basket=basket)
     return render(request, 'about.html', context)
 
 
@@ -57,7 +59,8 @@ def products(request, pk=None):
 
 def contact(request):
     title = "Contacts"
-    context = links_m(title=title)
+    basket = get_basket(request.user)
+    context = links_m(title=title, basket=basket)
     return render(request, 'contact.html', context)
 
 

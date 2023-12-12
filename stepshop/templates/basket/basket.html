@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+{%block css%}
+<link rel="stylesheet" href="{% static 'assets/css/flex-slider.css'">
+{%endblock%}
     {% if  user.is_authenticated %}
         <div class = "container">
             <div class="row">
@@ -40,4 +43,8 @@
             {% endif %}
         </div>
     {% endif %}
+{% endblock %}
+{%block js%}
+<script src="{%static 'assets/js/isotope.js'%}"></script>
+<script src="{%static 'assets/js/flex-slider.js'%}"></script>
 {% endblock %}

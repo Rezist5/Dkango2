@@ -26,6 +26,7 @@ def get_basket(user):
         return Basket.objects.filter(user=user)
     return []
 
+
 def index(request):
     title = "Main"
     prods = Product.objects.all()
@@ -34,10 +35,16 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+def baskett(request):
+    title = "basket"
+    context = links_m(title=title)
+    return render(request, 'basket.html', context)
+
+
 def about(request):
     title = "About"
     basket = get_basket(request.user)
-    context = links_m(title=title , basket=basket)
+    context = links_m(title=title, basket=basket)
     return render(request, 'about.html', context)
 
 
@@ -67,6 +74,6 @@ def contact(request):
 def product(request, pk):
     title = "Product page"
     prod = Product.objects.get(pk=pk)
-    same_prods = Product.objects.exclude(pk=pk)#.filter(category=prod.category)
+    same_prods = Product.objects.exclude(pk=pk)  # .filter(category=prod.category)
     context = links_m(title=title, prod=prod, same_prods=same_prods)
     return render(request, 'product.html', context)

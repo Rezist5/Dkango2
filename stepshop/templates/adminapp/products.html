@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <h1 class="mt-4">Продукты
             {% if category %}
-                :<span>{{ category.name }}</span>
+                <span>{{ category.name }}</span>
             {% endif %}
         </h1>
         <div class="card mb-4">
@@ -57,21 +57,21 @@
                                 <td>{{ object.price }} руб</td>
                                 <td>
                                   <button type="button" class="btn btn-primary">
-                                    <a class="text-white" href={% url 'admin_staff:product_read' object.pk %}>
+                                    <a class="text-white" href="{% url 'admin_staff:product_read' object.pk %}">
                                       подробнее
                                     </a>
                                   </button>
                                 </td>
                                 <td>
                                   <button class="btn btn-warning">
-                                    <a class="text-dark" href={% url 'admin_staff:product_update' object.pk %}>
+                                    <a class="text-dark" href="{% url 'admin_staff:product_update' object.pk %}">
                                       редактировать
                                     </a>
                                   </button>
                                     </td>
                                 <td>
                                   <button class="btn btn-danger">
-                                    <a class="text-white" href={% url 'admin_staff:product_delete' object.pk %}>
+                                    <a class="text-white" href="{% url 'admin_staff:product_delete' object.pk %}">
                                       удалить
                                     </a>
                                   </button>

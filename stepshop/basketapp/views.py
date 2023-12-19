@@ -6,13 +6,14 @@ from django.urls import reverse
 
 from basketapp.models import Basket
 from mainapp.models import Product
+from mainapp.views import links_m
 
 
 @login_required
 def basket(request):
     if request.user.is_authenticated:
         user_basket = Basket.objects.filter(user=request.user)
-        context = {'basket': user_basket}
+        context = links_m(basket=user_basket)
         return render(request, 'basket/basket.html', context)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

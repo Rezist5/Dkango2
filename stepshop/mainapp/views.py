@@ -35,12 +35,6 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def baskett(request):
-    title = "basket"
-    context = links_m(title=title)
-    return render(request, 'basket.html', context)
-
-
 def about(request):
     title = "About"
     basket = get_basket(request.user)

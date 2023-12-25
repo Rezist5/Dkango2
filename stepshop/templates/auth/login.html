@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="contact-page">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-3">
+                <form id="contact" method="post">
+
+                    {% csrf_token %}
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{next}}">
+                    {% endif %}
+                    {{ login_form.as_p }}
+                    <button type="submit" class="my-4 btn btn-primary">Войти</button>
+
+                </form>
+                <button class="btn button btn-round from-control">
+                    <a href="{% url 'auth:register' %}">Зарегистрироваться</a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -68,6 +68,7 @@ def contact(request):
 def product(request, pk):
     title = "Product page"
     prod = Product.objects.get(pk=pk)
+    basket = get_basket(request.user)
     same_prods = Product.objects.exclude(pk=pk)  # .filter(category=prod.category)
-    context = links_m(title=title, prod=prod, same_prods=same_prods)
+    context = links_m(title=title, prod=prod, same_prods=same_prods, basket=basket)
     return render(request, 'product.html', context)

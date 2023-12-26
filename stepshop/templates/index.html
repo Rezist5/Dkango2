@@ -14,15 +14,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="caption">
-                    <h2>Ecommerce HTML Template</h2>
+                    <h2>Мой магазин</h2>
                     <div class="line-dec"></div>
-                    <p>Pixie HTML Template can be converted into your desired CMS theme. Total <strong>5 pages</strong>
-                        included. You can use this Bootstrap v4.1.3 layout for any CMS.
-                        <br><br>Please tell your friends about <a rel="nofollow"
-                                                                  href="https://www.facebook.com/tooplate/">Tooplate</a>
-                        free template site. Thank you. Photo credit goes to <a rel="nofollow"
-                                                                               href="https://www.pexels.com">Pexels
-                            website</a>.</p>
+                    <p>Целый ничем почти не измененный шаблон.
+                        <br><br>Здесь должно быть что-то написано
                     <div class="main-button">
                         <a href="#">Order Now!</a>
                     </div>
@@ -47,7 +42,7 @@
                 <div class="owl-carousel owl-theme">
                     {% for prod in prods %}
                     <a href="{% url 'products:product' prod.pk %}">
-                        <div class="featured-item">
+
                             {% if prod.image %}
                             <div class="featured-item">
                                 <img src="{{prod.image.url}}" alt="{{prod.name}}">
@@ -61,7 +56,7 @@
                                 <h6>{{prod.price}}</h6>
                             </div>
                             {%endif%}
-                        </div>
+
                     </a>
                     {% endfor %}
                 </div>
@@ -79,7 +74,7 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h1>Subscribe on PIXIE now!</h1>
+                    <h1>Subscribe on us now!</h1>
                 </div>
             </div>
             <div class="col-md-8 offset-md-2">
